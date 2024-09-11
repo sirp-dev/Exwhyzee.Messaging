@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/image/xyzico.png" rel="shortcut icon" type="image/x-icon" />
+    <title>@ViewBag.Title - XYZSMS | Bulk Sms</title>
+    @Styles.Render("~/Admin/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="#" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>XYZSMS </b> ADMIN</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>XYZSMS</b> ADMIN </span>
+            </a>
+
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <a href="@Url.Content("~/adminpanel/transactions")" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-success">@Html.Partial("_PendingTransactionCount")</span>
+                            </a>
+                        </li>
+                        
+                        <!-- User Account: style can be found in dropdown.less -->
+                        @Html.Partial("_AccountPartialView")
+                        <!-- Control Sidebar Toggle Button -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/Uploads/user.png" class="img-circle" alt="User Image">
+
+                    </div>
+                    <div class="pull-left info">
+                        <p>@User.Identity.Name</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+   
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li>
+                        <a href="@Url.Content("~/adminpanel/main")">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Content("~/clientpanel/dashboard")">
+                            <i class="fa fa-dashboard"></i> <span>Client's Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-users"></i> <span>Manage Users</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Content("~/adminpanel/manageusers")"><i class="fa fa-circle-o"></i>Users With Role</a></li>
+                            <li><a href="@Url.Content("~/adminpanel/manageusers/UserList")"><i class="fa fa-circle-o"></i> Users Only</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-money"></i> <span>Transactions</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Content("~/adminpanel/transactions")"><i class="fa fa-circle-o"></i>Transactions</a></li>
+                            <li><a href="@Url.Content("~/adminpanel/transactions/ClientUnits")"><i class="fa fa-circle-o"></i> Client Units</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i> <span>Vouchers</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Content("~/adminpanel/vouchers")"><i class="fa fa-circle-o"></i>Vouchers in Batches</a></li>
+                            <li><a href="@Url.Content("~/adminpanel/vouchers/allvouchers")"><i class="fa fa-circle-o"></i> All Vouchers</a></li>
+                            <li><a href="@Url.Content("~/adminpanel/vouchers/generatevoucher")"><i class="fa fa-circle-o"></i> Generate Voucher</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Content("~/adminpanel/pricesettings")">
+                            <i class="fa fa-gear"></i> <span>Price Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Content("~/adminpanel/apisettings")">
+                            <i class="fa fa-gear"></i> <span>API Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Content("~/adminpanel/xyzsenderids/index")">
+                            <i class="fa fa-envelope-square"></i> <span>Sender IDs</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Content("~/adminpanel/main/messages")">
+                            <i class="fa fa-envelope-square"></i> <span>Message History</span>
+                        </a>
+                    </li>
+
+
+
+                    <li>
+                        <a href="@Url.Content("~/adminpanel/adminsettings/editsettings")">
+                            <i class="fa fa-gears"></i> <span>Admin Settings</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Content("~/Home/Slider")">
+                            <i class="fa fa-gears"></i> <span>Slides</span>
+                        </a>
+
+                        <a href="@Url.Content("~/adminpanel/modalinfoes")">
+                            <i class="fa fa-gears"></i> <span>Modal Info</span>
+                        </a>
+                    </li>
+
+                    <li><a href=""><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+                    <li><a href="@Url.Content("~/Home/")"><i class="fa fa-home"></i> <span>Home</span></a></li>
+                    @*<li class="header">LABELS</li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>*@
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <div class="clearfix"></div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 3.0.0.0
+            </div>
+            <strong>Copyright &copy; 2016 <a href="www.exwhyzeetech.ng">Exwhyzee Technologies Ltd.</a>.</strong> All rights
+            reserved.
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/adminjs")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

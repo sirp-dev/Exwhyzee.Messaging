@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Exwhyzee.Messaging.Web.Models.ModalInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Manage Modal</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Manage Modal</a></li>
+        <li class="active">Information</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="box box-danger" style="padding:30px;">
+            <h2>Notice Board</h2>
+
+            @*<p>
+                @Html.ActionLink("Create New", "Create")
+            </p>*@
+            <table class="table">
+                
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.Raw(item.Modal)
+                       <br /><br />
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                            
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</section>
